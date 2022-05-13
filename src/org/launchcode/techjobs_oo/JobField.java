@@ -2,46 +2,39 @@ package org.launchcode.techjobs_oo;
 
 import java.util.Objects;
 
-public class Location {
+public abstract class JobField {
     private int id;
     private static int nextId = 1;
     private String value;
 
-    public Location() {
-        id = nextId;
+    public JobField() {
+        this.id = nextId;
         nextId++;
     }
 
-    // TODO: Add a constructor that takes a string as a parameter and assigns it to the 'value' field. The
-    //  constructor should also call the empty constructor in order to initialize the 'id' field.
-
-    public Location(String value) {
+    public JobField(String value) {
         this();
         this.value = value;
     }
-
-
-    // Custom toString, equals, and hashCode methods:
 
     @Override
     public String toString() {
         return value;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Location)) return false;
-        Location location = (Location) o;
-        return getId() == location.getId();
+        if (o == null || getClass() != o.getClass()) return false;
+        JobField jobField = (JobField) o;
+        return id == jobField.id && Objects.equals(value, jobField.value);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(id, value);
     }
-
-    // Getters and Setters:
 
     public int getId() {
         return id;
@@ -54,4 +47,6 @@ public class Location {
     public void setValue(String value) {
         this.value = value;
     }
+
 }
+
