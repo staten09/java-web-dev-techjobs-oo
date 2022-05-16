@@ -29,7 +29,7 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
     public String toString() {
-        return "Id: " + getId() + " \n" +
+        return "\n Id: " + getId() + " \n" +
                 "Name: " + getName() + " \n" +
                 "Employer: " + getEmployer() + " \n" +
                 "Location: " + getLocation() + " \n" +
